@@ -18,13 +18,20 @@ import OpenAI from "openai";
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
+function updateUserMessage(input: string){
+  const preprompt = `You are a specialized assistant designed to answer questions based on the content provided in the uploaded documents. The document you have contains api documentation as well as product documentation.
+  
+  `
+  //Your responses should mostly be derived from the data and context present in those documents. If a user asks a question that cannot be answered from the documents or does not relate to Cashfree, simply respond with: "I'm unable to assist with queries that do not pertain to Cashfree or the information provided in the documents"
+  return preprompt + input
+}
 export async function POST(req: NextRequest) {
   try {
     // Extract thread ID, input content, and fileIds from JSON data
     const data = await req.json();
     const threadId = data.threadId;
-    const input = data.input;
+    const input = updateUserMessage(data.input);
+
     const fileIds = data.fileIds; // This is the new line
 
     // Log the received thread ID, input, and fileIds for debugging purposes
@@ -41,8 +48,7 @@ export async function POST(req: NextRequest) {
     if (input) {
       await openai.beta.threads.messages.create(threadId, {
         role: "user",
-        content: input,
-        file_ids: fileIds || [], // This is the new line
+        content: input
       });
       console.log("add_Message successfully");
       return NextResponse.json({ message: "Message created successfully" });

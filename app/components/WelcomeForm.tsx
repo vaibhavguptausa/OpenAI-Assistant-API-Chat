@@ -94,15 +94,15 @@ const WelcomeForm: React.FC<WelcomeFormProps> = ({
           <div>
             <button
               type="button"
-              onClick={() => setAssistantModel('gpt-4-1106-preview')}
-              className={`p-1 border border-gray-400 rounded-md ${assistantModel === 'gpt-4-1106-preview' ? 'bg-blue-500 text-white' : ''}`}
+              onClick={() => setAssistantModel('gpt-4o-mini')}
+              className={`p-1 border border-gray-400 rounded-md ${assistantModel === 'gpt-3.5-turbo-1106' ? 'bg-blue-500 text-white' : ''}`}
               disabled={process.env.NEXT_PUBLIC_DEMO_MODE === 'true'}
             >
               GPT-4
             </button>
             <button
               type="button"
-              onClick={() => setAssistantModel('gpt-3.5-turbo-1106')}
+              onClick={() => setAssistantModel('gpt-4o-mini')}
               className={`p-1 border border-gray-400 rounded-md ${assistantModel === 'gpt-3.5-turbo-1106' ? 'bg-blue-500 text-white' : ''}`}
             >
               GPT-3.5

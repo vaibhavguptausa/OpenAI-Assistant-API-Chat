@@ -15,6 +15,7 @@ import OpenAI from "openai";
 
 // Initialize the OpenAI client with the API key. This key is essential for authenticating 
 // the requests with OpenAI's API services.
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });

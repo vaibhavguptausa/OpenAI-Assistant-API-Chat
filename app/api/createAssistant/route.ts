@@ -22,30 +22,30 @@ const openai = new OpenAI({
   export async function POST(req: NextRequest) {
     if (req.method === 'POST') {
       try {
-          const { assistantName, assistantModel, assistantDescription, fileIds } = await req.json();
+        //   const { assistantName, assistantModel, assistantDescription, fileIds } = await req.json();
   
-          // Log the fileIds
-          console.log('File IDs:', fileIds);
+        //   // Log the fileIds
+        //   console.log('File IDs:', fileIds);
   
-          if (!assistantName || !assistantModel || !assistantDescription) {
-              throw new Error('Missing required assistant parameters');
-          }
+        //   if (!assistantName || !assistantModel || !assistantDescription) {
+        //       throw new Error('Missing required assistant parameters');
+        //   }
   
-          const assistantOptions: any = {
-              name: assistantName,
-              instructions: assistantDescription,
-              model: assistantModel,
-              tools: [{ "type": "retrieval" }],
-          };
-          if (fileIds) {
-              assistantOptions.file_ids = fileIds;
-          }
+        //   const assistantOptions: any = {
+        //       name: assistantName,
+        //       instructions: assistantDescription,
+        //       model: assistantModel,
+        //       tools: [{ "type": "retrieval" }],
+        //   };
+        //   if (fileIds) {
+        //       assistantOptions.file_ids = fileIds;
+        //   }
   
-          // Log the assistantOptions
-          console.log('Assistant Options:', assistantOptions);
+        //   // Log the assistantOptions
+        //   console.log('Assistant Options:', assistantOptions);
   
-          const assistant = await openai.beta.assistants.create(assistantOptions);
-          const assistantId = assistant.id;
+        //   const assistant = await openai.beta.assistants.create(assistantOptions);
+          const assistantId = "asst_eLhGVoAekDKbMRQPwM1XBWOC";
   
           return NextResponse.json({ 
               message: 'Assistant created successfully', 
