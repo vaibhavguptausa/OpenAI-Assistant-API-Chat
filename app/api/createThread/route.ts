@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
 
       // Thread erstellen 
       // creating tool_resources with preset files from playground
-      const tool_resources = {"file_search":{"vector_store_ids": ["vs_oYF4hT5gya9PYBYHwVA8p2h2"]}, "code_interpreter":{"file_ids": ["file-GVsnUTVcvwsDDTsmU9tmmssh","file-L1Ey4Vn8bBKl2zd8qqY6gYbQ"]}}
+      const tool_resources = {"file_search":{"vector_store_ids": ["vs_oYF4hT5gya9PYBYHwVA8p2h2"]}, "code_interpreter":{"file_ids": ["file-GVsnUTVcvwsDDTsmU9tmmssh","file-L1Ey4Vn8bBKl2zd8qqY6gYbQ", "file-wFLY0h0aM7g3gb0WVZWf3rX8"]}}
       const thread = await openai.beta.threads.create({
         messages: [
           {
