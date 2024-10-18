@@ -17,11 +17,14 @@ const Message = ({ message, progress, isFirstMessage, fileDetails }) => {
       <div className="flex w-full max-w-screen-md items-start space-x-4 px-5 sm:px-0">
         <div
           className={clsx(
-            "p-1.5 text-white",
-            message.role === "assistant" ? "bg-green-500" : "bg-black"
+            "text-white",
+            message.role === "assistant" ? "" : ""
           )}
         >
-          {message.role === "user" ? <User width={20} /> : <Bot width={20} />}
+          {message.role === "user" ? 
+          <img src="https://ca.slack-edge.com/TM3MZ586R-U01MRS9186P-9d4a00561891-512" style={{borderRadius: '100%', width: '50px', border: '2px solid #6930CA'}} />
+          : 
+          <img src="https://avatars.githubusercontent.com/u/25682196?s=200&v=4" style={{borderRadius: '100%', width: '50px'}} />}
         </div>
         {message.role === "assistant" && message.isLoading ? (
           <>

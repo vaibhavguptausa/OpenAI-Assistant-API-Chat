@@ -54,7 +54,7 @@ export const fetchAssistantResponse = async (runId: string, threadId: string, se
           throw new Error(status);
         }
         const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2); // Calculate elapsed time in seconds
-        setStatusMessage(`Waiting for assistant response... Current status: ${status}. Time elapsed: ${elapsedTime} seconds.`);
+        // setStatusMessage(`Waiting for assistant response... Current status: ${status}. Time elapsed: ${elapsedTime} seconds.`);        
         await new Promise(resolve => setTimeout(resolve, 1000)); // Polling delay
     } while (status !== 'completed');
     setStatusMessage('Assistant response fetched successfully.');

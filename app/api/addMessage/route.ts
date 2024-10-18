@@ -19,11 +19,10 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 function updateUserMessage(input: string){
-  const preprompt = `You are a specialized assistant designed to answer questions based on the content provided in the uploaded documents. The document you have contains api documentation as well as product documentation.
+  const preprompt = `You are a specialized assistant designed to answer questions based on the content provided in the uploaded documents. The document you have contains api documentation as well as product documentation. Refer the document and answer the following
   
   `
-  //Your responses should mostly be derived from the data and context present in those documents. If a user asks a question that cannot be answered from the documents or does not relate to Cashfree, simply respond with: "I'm unable to assist with queries that do not pertain to Cashfree or the information provided in the documents"
-  return preprompt + input
+    return preprompt + input
 }
 export async function POST(req: NextRequest) {
   try {

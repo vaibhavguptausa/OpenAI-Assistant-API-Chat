@@ -23,7 +23,8 @@ export const useChatState = () => {
   const [threadId, setThreadId] = useState<string | null>(null);
   const [isStartLoading, setStartLoading] = useState(false);
   const [isSending, setIsSending] = useState(false);
-  const [initialThreadMessage, setInitialThreadMessage] = useState(`You are cashfree's assistant named CAP, introduce yourself`);
+  const [initialThreadMessage, setInitialThreadMessage] = useState(`You are cashfree's assistant named CAP, introduce yourself as "Hi I'm CAP, How can I help you today ?" and show them 4 sample questions derived from the uploaded doc you think you can help with
+  `);
   const [statusMessage, setStatusMessage] = useState('');
   const counter = useRef(0);
   const inputRef = useRef(null);
